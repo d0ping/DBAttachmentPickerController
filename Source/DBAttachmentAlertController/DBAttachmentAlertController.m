@@ -170,6 +170,7 @@ static NSString *const kPhotoCellIdentifier = @"DBThumbnailPhotoCellID";
     if (_assetsFetchResult == nil) {
         PHFetchOptions *allPhotosOptions = [PHFetchOptions new];
         allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+        allPhotosOptions.fetchLimit = 50;
         
         if (self.assetMediaType == PHAssetMediaTypeImage || self.assetMediaType == PHAssetMediaTypeVideo) {
             allPhotosOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", self.assetMediaType];
