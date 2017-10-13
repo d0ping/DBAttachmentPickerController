@@ -184,12 +184,18 @@
     switch (self.sourceType) {
         case DBAttachmentSourceTypePHAsset:
             if (completion) {
+                PHImageRequestOptions *options = [PHImageRequestOptions new];
+                options.deliveryMode = PHVideoRequestOptionsDeliveryModeHighQualityFormat;
+                options.networkAccessAllowed = YES;
+                
                 [[PHImageManager defaultManager] requestImageForAsset:self.photoAsset
                                                            targetSize:PHImageManagerMaximumSize
                                                           contentMode:PHImageContentModeDefault
-                                                              options:nil
+                                                              options:options
                                                         resultHandler:^(UIImage *result, NSDictionary *info) {
-                                                            completion(result);
+                                                            if ([info[PHImageResultIsDegradedKey] isEqual:@(NO)]) {
+                                                                completion(result);
+                                                            }
                                                         }];
             }
             break;
