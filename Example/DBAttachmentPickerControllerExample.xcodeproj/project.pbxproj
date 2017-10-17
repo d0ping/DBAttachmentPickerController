@@ -305,6 +305,7 @@
 				TargetAttributes = {
 					C3134EAE1C9C30990023B9E6 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 9L2H2A796T;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -530,10 +531,11 @@
 				CODE_SIGN_ENTITLEMENTS = DBAttachmentPickerControllerExample/DBAttachmentPickerControllerExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9L2H2A796T;
 				INFOPLIST_FILE = DBAttachmentPickerControllerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DB.DBAttachmentPickerControllerExample;
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lka.gk.dbattachmentpicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -546,10 +548,11 @@
 				CODE_SIGN_ENTITLEMENTS = DBAttachmentPickerControllerExample/DBAttachmentPickerControllerExample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9L2H2A796T;
 				INFOPLIST_FILE = DBAttachmentPickerControllerExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DB.DBAttachmentPickerControllerExample;
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lka.gk.dbattachmentpicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

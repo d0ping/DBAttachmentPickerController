@@ -34,12 +34,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        DBAssetGroupsViewController *groupController = [[DBAssetGroupsViewController alloc] initWithNibName:NSStringFromClass([DBAssetGroupsViewController class]) bundle:[NSBundle dbAttachmentPickerBundle]];
-        groupController.assetMediaType = self.assetMediaType;
-        groupController.assetGroupsDelegate = self;
-        [self setViewControllers:@[groupController]];
-    });
+    DBAssetGroupsViewController *groupController = [[DBAssetGroupsViewController alloc] initWithNibName:NSStringFromClass([DBAssetGroupsViewController class]) bundle:[NSBundle dbAttachmentPickerBundle]];
+    groupController.assetMediaType = self.assetMediaType;
+    groupController.assetGroupsDelegate = self;
+    [self setViewControllers:@[groupController]];
 }
 
 #pragma mark - DBAssetGroupsViewControllerDelegate
