@@ -51,6 +51,7 @@ const DBAttachmentMediaType DBAttachmentMediaTypeMaskAll = DBAttachmentMediaType
     controller.mediaType = DBAttachmentMediaTypeMaskAll;
     controller.allowsSelectionFromOtherApps = NO;
     controller.allowsMultipleSelection = NO;
+    controller.saveToPhotoLibrary = NO;
     controller.capturedVideoQulity = UIImagePickerControllerQualityTypeMedium;
     
 #pragma clang diagnostic push
@@ -105,6 +106,7 @@ const DBAttachmentMediaType DBAttachmentMediaTypeMaskAll = DBAttachmentMediaType
     DBAttachmentPickerController *controller = [self attachmentPickerControllerFinishPickingBlock:finishBlock cancelBlock:cancelBlock];
     controller.mediaType = DBAttachmentMediaTypeImage;
     controller.ignoreChangeMediaType = YES;
+    controller.saveToPhotoLibrary = NO;
     return controller;
 }
 
@@ -127,6 +129,7 @@ const DBAttachmentMediaType DBAttachmentMediaTypeMaskAll = DBAttachmentMediaType
     DBAttachmentPickerController *controller = [self attachmentPickerControllerFinishPickingBlock:finishBlock cancelBlock:cancelBlock];
     controller.mediaType = DBAttachmentMediaTypeVideo;
     controller.ignoreChangeMediaType = YES;
+    controller.saveToPhotoLibrary = NO;
     return controller;
 }
 
@@ -330,11 +333,17 @@ const DBAttachmentMediaType DBAttachmentMediaTypeMaskAll = DBAttachmentMediaType
         UIImage *image = info[UIImagePickerControllerOriginalImage];
         DBAttachment *attachment = [DBAttachment attachmentFromCameraImage:image];
         attachmentArray = @[attachment];
+        if (self.saveToPhotoLibrary) {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        }
     } else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie] || [mediaType isEqualToString:(NSString *)kUTTypeVideo]) {
         NSURL *documentURL = info[UIImagePickerControllerMediaURL];
         if (documentURL) {
             DBAttachment *attachment = [DBAttachment attachmentFromDocumentURL:documentURL];
             attachmentArray = @[attachment];
+        }
+        if (self.saveToPhotoLibrary) {
+            UISaveVideoAtPathToSavedPhotosAlbum([documentURL path], nil, nil, nil);
         }
     }
     
