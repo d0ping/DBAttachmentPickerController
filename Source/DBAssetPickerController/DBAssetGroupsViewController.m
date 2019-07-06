@@ -49,7 +49,6 @@ static NSString *const kAssetGroupsCellIdentifier = @"DBAssetGroupCellID";
     PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
     PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
     self.fetchResults = @[smartAlbums, userAlbums];
-//    self.fetchResults = @[userAlbums];
 
     [self updateAssetCollections];
 }
