@@ -49,7 +49,7 @@ static NSString *const kAssetGroupsCellIdentifier = @"DBAssetGroupCellID";
     PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
     PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
     self.fetchResults = @[smartAlbums, userAlbums];
-    
+
     [self updateAssetCollections];
 }
 
@@ -104,13 +104,13 @@ static NSString *const kAssetGroupsCellIdentifier = @"DBAssetGroupCellID";
     for (NSNumber *assetCollectionSubtype in assetCollectionSubtypes) {
         NSArray *collections = smartAlbums[assetCollectionSubtype];
         for (PHAssetCollection *assetCollection in collections) {
-            
+
             PHFetchOptions *options = [PHFetchOptions new];
             if (self.assetMediaType == PHAssetMediaTypeVideo || self.assetMediaType == PHAssetMediaTypeImage) {
                 options.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", self.assetMediaType];
             }
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:options];
-            
+
             if (fetchResult.count) {
                 [assetCollections addObject:assetCollection];
             }

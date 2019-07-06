@@ -75,6 +75,11 @@ typedef void (^CancelBlock)();
 @property (assign, nonatomic) BOOL allowsMultipleSelection;                             // default is NO
 
 /*!
+ @brief Used to save photos or videos taken with the camera to camera roll
+ */
+@property (assign, nonatomic) BOOL saveToPhotoLibrary;                                  // default is NO
+
+/*!
  @brief Creates and returns an attachment picker controller
  @see presentOnViewController:
  @param finishPickingBlock The block will be performed when user select attachment(s)
